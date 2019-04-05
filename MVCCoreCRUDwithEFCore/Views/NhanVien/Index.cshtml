@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCCoreCRUDwithEFCore.Models.NhanVien>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh Sách Nhân viên</h1>
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViTri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoiLamViec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MucLuong)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViTri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiLamViec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MucLuong)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NhanVienId">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.NhanVienId">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.NhanVienId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
